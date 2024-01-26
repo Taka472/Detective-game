@@ -24,6 +24,8 @@ public class DialogueControl : MonoBehaviour
     public InventoryControl inventoryControl;
     public Evidence[] evidences;
     public LocationControl locationControl;
+    public NPCInteractionControl npcControl;
+    public Location locations;
 
     public GameObject inventory;
     public GameObject choicePanel;
@@ -119,6 +121,11 @@ public class DialogueControl : MonoBehaviour
                         dialogueText.color = Color.yellow;
                         break;
                     }
+                case "add":
+                    {
+                        npcControl.firstTime.Add(Movement.instance.interacting.GetComponent<NPCControl>().NPCID);
+                        break;
+                    }
                 case "center":
                     {
                         dialogueText.alignment = TextAnchor.MiddleCenter;
@@ -126,42 +133,12 @@ public class DialogueControl : MonoBehaviour
                         {
                             case "addEvidence":
                                 {
-                                    switch (currentStory.currentTags[2])
-                                    {
-                                        case "0":
-                                            {
-                                                if (!inventoryControl.evidencesID.Contains(evidences[0]))
-                                                    inventoryControl.evidencesID.Add(evidences[0]);
-                                                break;
-                                            }
-                                        case "1":
-                                            {
-                                                if (!inventoryControl.evidencesID.Contains(evidences[1]))
-                                                    inventoryControl.evidencesID.Add(evidences[1]);
-                                                break;
-                                            }
-                                    }
+                                    AddEvidence(int.Parse(currentStory.currentTags[2]));
                                     break;
                                 }
                             case "addLocation":
                                 {
-                                    switch (currentStory.currentTags[2])
-                                    {
-                                        case "1":
-                                            {
-                                                if (!locationControl.locationNames.Contains("Lakeville bridge"))
-                                                    locationControl.locationNames.Add("Lakeville bridge");
-                                                break;
-                                            }
-                                        case "2":
-                                            {
-                                                if (!locationControl.locationNames.Contains("Henry's house"))
-                                                {
-                                                    locationControl.locationNames.Add("Henry's house");
-                                                }
-                                                break;
-                                            }
-                                    }
+                                    AddLocation(int.Parse(currentStory.currentTags[2]));
                                     break;
                                 }
                         }
@@ -201,6 +178,18 @@ public class DialogueControl : MonoBehaviour
         if (currentStory.currentChoices.Count > 0)
             DisplayChoices();
         isTyping = false;
+    }
+
+    public void AddEvidence(int index)
+    {
+        if (!inventoryControl.evidencesID.Contains(evidences[index]))
+            inventoryControl.evidencesID.Add(evidences[index]);
+    }
+
+    public void AddLocation(int index)
+    {
+        if (!locationControl.locationNames.Contains(locations.locationName[index]))
+            locationControl.locationNames.Add(locations.locationName[index]);
     }
 
     public void SkipSenetence()

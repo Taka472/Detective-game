@@ -24,6 +24,7 @@ public class LocationControl : MonoBehaviour
         {
             buttons[i].gameObject.SetActive(true);
             buttons[i].transform.GetChild(0).GetComponent<Text>().text = locationNames[i];
+            buttons[i].transform.GetChild(0).GetComponent<Text>().color = Color.white;
         }
         buttons[SceneManager.GetActiveScene().buildIndex - 1].transform.GetChild(0).GetComponent<Text>().color = Color.yellow;
         EventSystem.current.SetSelectedGameObject(buttons[0].gameObject);

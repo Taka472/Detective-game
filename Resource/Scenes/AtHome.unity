@@ -1033,6 +1033,8 @@ MonoBehaviour:
   - {fileID: 781385011}
   - {fileID: 2052633384}
   locationControl: {fileID: 1245670571}
+  npcControl: {fileID: 870248542}
+  locations: {fileID: 78088886}
   inventory: {fileID: 1777311682}
   choicePanel: {fileID: 153830700}
   choices:

@@ -63,7 +63,6 @@ public class Interaction : MonoBehaviour
                         GetComponent<NPCControl>().PlayerInteraction();
                         if (!npcControl.firstTime.Contains(GetComponent<NPCControl>().NPCID))
                         {
-                            npcControl.firstTime.Add(GetComponent<NPCControl>().NPCID);
                             StartCoroutine(control.EnterDialogueMode(inkJSON));
                         }
                         else StartCoroutine(control.EnterDialogueMode(GetComponent<NPCControl>().randomResponse[Random.Range(0, GetComponent<NPCControl>().randomResponse.Length)]));

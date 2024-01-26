@@ -526,7 +526,9 @@ MonoBehaviour:
   randomResponse:
   - {fileID: 4900000, guid: 06c9db3e4ed49f44b841b75359d9dce3, type: 3}
   evidenceResponse:
-  - {fileID: 4900000, guid: 889a16eb66dc444419bab93751cde24b, type: 3}
+  - {fileID: 4900000, guid: bc6d34ffed122bc4d91f8dd89829233a, type: 3}
+  - {fileID: 4900000, guid: 5ceefdd5ec6c9b544902182f2bb50879, type: 3}
+  - {fileID: 4900000, guid: ac62e0aaf7b2465479d3cc90202222c1, type: 3}
 --- !u!1 &445172981
 GameObject:
   m_ObjectHideFlags: 0

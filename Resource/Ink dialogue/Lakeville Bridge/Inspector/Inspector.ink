@@ -11,6 +11,6 @@ Thanks cheif, I need to hurry, I don't have much time left
 I know that your son is also missing and as a father, I understand your feeling right now #yellow
 We will get to the bottom of this ASAP #yellow
 Also be safe out there, it will be a long night #yellow
-Thanks chief, I hope I can fine him soon, alive
+Thanks chief, I hope I can fine him soon, alive #add
 Sasha's autospy added #center #addEvidence #1
 ->END
