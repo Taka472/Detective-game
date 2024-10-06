@@ -21,16 +21,19 @@ public class Cutscene1 : MonoBehaviour
     {
         interaction = GetComponent<Interaction>();
         StartCoroutine(PlayCutscene());
-        DontDestroyOnLoad(gameObject);
+        // DontDestroyOnLoad(gameObject);
         FindReference();
         instance = this;
     }
 
     IEnumerator PlayCutscene()
     {
-        DialogueControl.Instance.isPlaying = true;
-        yield return new WaitForSeconds(1);
-        StartCoroutine(FindObjectOfType<DialogueControl>().EnterDialogueMode(interaction.inkJSON));
+        if (SceneManager.GetActiveScene().name.Equals("AtHome"))
+        {
+            DialogueControl.Instance.isPlaying = true;
+            yield return new WaitForSeconds(1);
+            StartCoroutine(FindObjectOfType<DialogueControl>().EnterDialogueMode(interaction.inkJSON));
+        }
     }
 
     public void DummyTransition(int index)

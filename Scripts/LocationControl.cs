@@ -32,8 +32,13 @@ public class LocationControl : MonoBehaviour
 
     public void ExecuteButton(int index)
     {
-        if (SceneManager.GetActiveScene().buildIndex == index + 1) return;
+        if (SceneManager.GetActiveScene().buildIndex != index + 1) return;
         else Cutscene1.instance.DummyTransition(index + 1);
+        gameObject.SetActive(false);
+    }
+
+    public void Disable()
+    {
         gameObject.SetActive(false);
     }
 }

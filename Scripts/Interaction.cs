@@ -6,9 +6,10 @@ public class Interaction : MonoBehaviour
 {
     public float radius = 2;
     public Transform player;
-    public DialogueControl control;
+    public DialogueControl dialogueControl;
     public InventoryControl inventory;
     public NPCInteractionControl npcControl;
+    public LocationControl locationControl;
     public bool sceneChange;
     public int playerRotation;
 
@@ -19,13 +20,6 @@ public class Interaction : MonoBehaviour
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, radius);
-    }
-
-    private void Start()
-    {
-        control = FindObjectOfType<DialogueControl>();
-        inventory = FindObjectOfType<InventoryControl>();
-        npcControl = FindObjectOfType<NPCInteractionControl>();
     }
 
     private void Update()
@@ -40,32 +34,32 @@ public class Interaction : MonoBehaviour
             if (Cutscene1.instance.isTransition || Movement.instance.openInventory) return;
             else if (Vector2.Distance(transform.position, player.position) <= radius)
             {
-                if (!control.isPlaying)
+                if (!dialogueControl.isPlaying)
                 {
-                    if (!control.locationControl.gameObject.activeSelf)
+                    if (!dialogueControl.locationControl.gameObject.activeSelf)
                     {
                         if (GetComponent<NPCControl>() == null)
                         {
-                            StartCoroutine(control.EnterDialogueMode(inkJSON));
+                            StartCoroutine(dialogueControl.EnterDialogueMode(inkJSON));
                             Movement.instance.interactKey.SetActive(false);
                             Movement.instance.interacting = gameObject;
                         }
                     }
                     if (GetComponent<PositionChange>() != null)
                     {
-                        control.characterPositionChange = GetComponent<PositionChange>().playerPosition;
-                        control.cameraPositionChange = GetComponent<PositionChange>().cameraPosition;
+                        dialogueControl.characterPositionChange = GetComponent<PositionChange>().playerPosition;
+                        dialogueControl.cameraPositionChange = GetComponent<PositionChange>().cameraPosition;
                     }
                     else if (GetComponent<NPCControl>() != null)
                     {
                         Movement.instance.interacting = gameObject;
-                        control.normalChoice = true;
+                        dialogueControl.normalChoice = true;
                         GetComponent<NPCControl>().PlayerInteraction();
                         if (!npcControl.firstTime.Contains(GetComponent<NPCControl>().NPCID))
                         {
-                            StartCoroutine(control.EnterDialogueMode(inkJSON));
+                            StartCoroutine(dialogueControl.EnterDialogueMode(inkJSON));
                         }
-                        else StartCoroutine(control.EnterDialogueMode(GetComponent<NPCControl>().randomResponse[Random.Range(0, GetComponent<NPCControl>().randomResponse.Length)]));
+                        else StartCoroutine(dialogueControl.EnterDialogueMode(GetComponent<NPCControl>().randomResponse[Random.Range(0, GetComponent<NPCControl>().randomResponse.Length)]));
                         Movement.instance.interactKey.SetActive(false);
                         if (player.transform.rotation.y != playerRotation)
                         {
@@ -74,19 +68,19 @@ public class Interaction : MonoBehaviour
                     }
                     else if (sceneChange)
                     {
-                        control.characterPositionChange = Vector3.zero;
-                        control.cameraPositionChange = Vector3.zero;
+                        dialogueControl.characterPositionChange = Vector3.zero;
+                        dialogueControl.cameraPositionChange = Vector3.zero;
                     }
                 }
-                else if (control.isTyping)
+                else if (dialogueControl.isTyping)
                 {
-                    control.isTyping = false;
-                    control.StopAllCoroutines();
-                    control.SkipSenetence();
+                    dialogueControl.isTyping = false;
+                    dialogueControl.StopAllCoroutines();
+                    dialogueControl.SkipSenetence();
                 }
                 else
                 {
-                    control.ContinueStory();
+                    dialogueControl.ContinueStory();
                 }
             }
         }

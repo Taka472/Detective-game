@@ -45,9 +45,9 @@ public class DialogueControl : MonoBehaviour
             Debug.LogWarning("Found more than one Dialogue in scene");
         }
         instance = this;
-        DontDestroyOnLoad(transform.parent.gameObject);
-        DontDestroyOnLoad(GameObject.Find("Canvas"));
-        DontDestroyOnLoad(GameObject.FindGameObjectWithTag("EventSystem"));
+        // DontDestroyOnLoad(transform.parent.gameObject);
+        // DontDestroyOnLoad(GameObject.Find("Canvas"));
+        // DontDestroyOnLoad(GameObject.FindGameObjectWithTag("EventSystem"));
     }
 
     public static DialogueControl Instance { get { return instance; } }

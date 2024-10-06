@@ -3609,9 +3609,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 2.2
   player: {fileID: 748669410}
-  control: {fileID: 0}
+  dialogueControl: {fileID: 0}
   inventory: {fileID: 0}
   npcControl: {fileID: 0}
+  locationControl: {fileID: 0}
   sceneChange: 0
   playerRotation: 0
   inkJSON: {fileID: 4900000, guid: 533c382c178ff5242af8c59504982fc1, type: 3}
@@ -6375,9 +6376,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 0.7
   player: {fileID: 748669410}
-  control: {fileID: 0}
+  dialogueControl: {fileID: 236355375}
   inventory: {fileID: 1777311685}
-  npcControl: {fileID: 0}
+  npcControl: {fileID: 870248542}
+  locationControl: {fileID: 1245670571}
   sceneChange: 0
   playerRotation: 0
   inkJSON: {fileID: 4900000, guid: 9d12c1a3f6d9ae84e95324b6f51db261, type: 3}
@@ -7176,9 +7178,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 0.5
   player: {fileID: 748669410}
-  control: {fileID: 0}
+  dialogueControl: {fileID: 236355375}
   inventory: {fileID: 1777311685}
-  npcControl: {fileID: 0}
+  npcControl: {fileID: 870248542}
+  locationControl: {fileID: 1245670571}
   sceneChange: 1
   playerRotation: 0
   inkJSON: {fileID: 4900000, guid: 3f76cea3066f63a4fa0c6ee18bdf67f0, type: 3}
@@ -7981,9 +7984,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 1.6
   player: {fileID: 748669410}
-  control: {fileID: 0}
+  dialogueControl: {fileID: 236355375}
   inventory: {fileID: 1777311685}
-  npcControl: {fileID: 0}
+  npcControl: {fileID: 870248542}
+  locationControl: {fileID: 1245670571}
   sceneChange: 0
   playerRotation: 0
   inkJSON: {fileID: 4900000, guid: da22f27860a78774887ad8b9829c76d5, type: 3}
@@ -8363,9 +8367,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 0.7
   player: {fileID: 748669410}
-  control: {fileID: 0}
+  dialogueControl: {fileID: 236355375}
   inventory: {fileID: 1777311685}
-  npcControl: {fileID: 0}
+  npcControl: {fileID: 870248542}
+  locationControl: {fileID: 1245670571}
   sceneChange: 0
   playerRotation: 0
   inkJSON: {fileID: 4900000, guid: acb5cb1148b69ae40979e926c0222d48, type: 3}
@@ -9901,9 +9906,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 0.7
   player: {fileID: 748669410}
-  control: {fileID: 0}
+  dialogueControl: {fileID: 236355375}
   inventory: {fileID: 1777311685}
-  npcControl: {fileID: 0}
+  npcControl: {fileID: 870248542}
+  locationControl: {fileID: 1245670571}
   sceneChange: 0
   playerRotation: 0
   inkJSON: {fileID: 4900000, guid: 26b402ac0a03a7d42a5d6712f09b8e1f, type: 3}
@@ -10008,9 +10014,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 0.5
   player: {fileID: 748669410}
-  control: {fileID: 0}
+  dialogueControl: {fileID: 236355375}
   inventory: {fileID: 1777311685}
-  npcControl: {fileID: 0}
+  npcControl: {fileID: 870248542}
+  locationControl: {fileID: 1245670571}
   sceneChange: 0
   playerRotation: 0
   inkJSON: {fileID: 4900000, guid: d9c0982748a6dc747a7a5fd2fb7cfd90, type: 3}
