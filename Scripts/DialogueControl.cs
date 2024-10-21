@@ -10,7 +10,8 @@ public class DialogueControl : MonoBehaviour
 {
     private static DialogueControl instance;
     public bool isTyping = false;
-    [SerializeField] public Text dialogueText;
+    public Text dialogueText;
+    public Text speakerText;
     [SerializeField] private Animator animator;
     private Story currentStory;
     public bool isPlaying;
@@ -22,8 +23,9 @@ public class DialogueControl : MonoBehaviour
     public float maxPitch = 3;
     public bool normalChoice = false;
     public InventoryControl inventoryControl;
-    public Evidence[] evidences;
+    public EvidenceHolders evidences;
     public LocationControl locationControl;
+    public GameObject locationControlTitle;
     public NPCInteractionControl npcControl;
     public Location locations;
 
@@ -36,7 +38,11 @@ public class DialogueControl : MonoBehaviour
 
     public Vector3 characterPositionChange;
     public Vector3 cameraPositionChange;
+    public float maxSpace;
+    public float minSpace;
     public Canvas mainCanvas;
+
+    [SerializeField] private NonSenseScript nonSenseScript;
 
     private void Awake()
     {
@@ -77,7 +83,11 @@ public class DialogueControl : MonoBehaviour
     public void ShowEvidence(TextAsset inkJSON)
     {
         currentStory = new Story(inkJSON.text);
-        //StartCoroutine(TypeText(currentStory.Continue()));
+        if (isTyping)
+        {
+            StopAllCoroutines();
+            StartCoroutine(TypeText(currentStory.currentText));
+        }
     }
 
     private void ExitDialogue()
@@ -87,6 +97,7 @@ public class DialogueControl : MonoBehaviour
         Movement.instance.isInteracting = false;
         animator.SetBool("isOpen", false);
         dialogueText.text = "";
+        speakerText.text = "";
         if (Movement.instance.interacting != null)
             if (Movement.instance.interacting.GetComponent<NPCControl>() != null)
                 StartCoroutine(Movement.instance.interacting.GetComponent<NPCControl>().StopInteraction());
@@ -112,6 +123,8 @@ public class DialogueControl : MonoBehaviour
         int index = 0;
         dialogueText.color = Color.white;
         dialogueText.alignment = TextAnchor.UpperLeft;
+        speakerText.text = "Detective";
+        speakerText.color = Color.white;
         if (currentStory.currentTags.Count != 0)
         {
             switch (currentStory.currentTags[0])
@@ -119,6 +132,8 @@ public class DialogueControl : MonoBehaviour
                 case "yellow":
                     {
                         dialogueText.color = Color.yellow;
+                        speakerText.color = Color.yellow;
+                        speakerText.text = currentStory.currentTags[1];
                         break;
                     }
                 case "add":
@@ -133,15 +148,22 @@ public class DialogueControl : MonoBehaviour
                         {
                             case "addEvidence":
                                 {
+                                    speakerText.text = "New clue";
                                     AddEvidence(int.Parse(currentStory.currentTags[2]));
                                     break;
                                 }
                             case "addLocation":
                                 {
+                                    speakerText.text = "New location";
                                     AddLocation(int.Parse(currentStory.currentTags[2]));
                                     break;
                                 }
                         }
+                        break;
+                    }
+                case "sceneTransition":
+                    {
+
                         break;
                     }
             }
@@ -182,8 +204,8 @@ public class DialogueControl : MonoBehaviour
 
     public void AddEvidence(int index)
     {
-        if (!inventoryControl.evidencesID.Contains(evidences[index]))
-            inventoryControl.evidencesID.Add(evidences[index]);
+        if (!inventoryControl.evidencesID.Contains(evidences.EvidenceList()[index]))
+            inventoryControl.evidencesID.Add(evidences.EvidenceList()[index]);
     }
 
     public void AddLocation(int index)
@@ -246,6 +268,7 @@ public class DialogueControl : MonoBehaviour
             else
             {
                 locationControl.gameObject.SetActive(true);
+                locationControlTitle.SetActive(true);
                 locationControl.LoadLocation();
             }
         }
@@ -275,6 +298,7 @@ public class DialogueControl : MonoBehaviour
         }
         ExitDialogue();
         StartCoroutine(Cutscene1.instance.StartTransitionInScene(characterPositionChange, 0, cameraPositionChange));
+        Movement.instance.UpdateSpace(maxSpace, minSpace);
     }
 
     public void NoButton()
@@ -294,5 +318,15 @@ public class DialogueControl : MonoBehaviour
     public void Update()
     {
         GameObject.Find("Canvas").GetComponent<Canvas>().worldCamera = Cutscene1.instance.main.GetComponent<Camera>();
+    }
+
+    public void NonSense()
+    {
+        currentStory = new Story(nonSenseScript.getDialogues()[Random.Range(0, nonSenseScript.getDialogues().Length)].text);
+        if (isTyping)
+        {
+            StopAllCoroutines();
+            StartCoroutine(TypeText(currentStory.currentText));
+        }
     }
 }

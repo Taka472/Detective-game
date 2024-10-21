@@ -31,6 +31,7 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GetComponent<PauseMenu>().GetActive()) return;
         if (!isInteracting && !openInventory)
         {
             Move();
@@ -135,6 +136,7 @@ public class Movement : MonoBehaviour
             DialogueControl.Instance.inventory.transform.GetChild(0).gameObject.SetActive(true);
             DialogueControl.Instance.inventory.GetComponent<Image>().enabled = true;
             DialogueControl.Instance.dialogueText.gameObject.SetActive(false);
+            DialogueControl.Instance.speakerText.gameObject.SetActive(false);
             InventoryControl.instance.LoadEvidence();
             openInventory = !openInventory;
         }
@@ -145,8 +147,16 @@ public class Movement : MonoBehaviour
             DialogueControl.Instance.inventory.transform.GetChild(0).gameObject.SetActive(false);
             DialogueControl.Instance.inventory.GetComponent<Image>().enabled = false;
             DialogueControl.Instance.dialogueText.gameObject.SetActive(true);
+            DialogueControl.Instance.speakerText.gameObject.SetActive(true);
             InventoryControl.instance.Close();
             openInventory = !openInventory;
         }
+    }
+
+    public void UpdateSpace(float maxSpace, float minSpace)
+    {
+        if (minSpace == 0 && maxSpace == 0) return;
+        this.maxSpace = maxSpace;
+        this.minSpace = minSpace;
     }
 }

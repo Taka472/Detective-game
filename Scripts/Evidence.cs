@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
-public class Evidence : MonoBehaviour
+[Serializable]
+public class Evidence
 {
     public int ID;
     public Sprite sprite;
-    public new string name;
+    public string name;
     public string description;
     public Sprite spriteSelected;
 }

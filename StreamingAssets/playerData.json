@@ -1,0 +1,18 @@
+{
+    "playerPosition": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+    },
+    "evidenceIDList": [
+        0
+    ],
+    "locationList": [
+        "Police station",
+        "Lakeville bridge"
+    ],
+    "currentScene": 2,
+    "firstTimeInteractionList": [
+        0
+    ]
+}

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using AssemblyCSharp;
 
 public class Cutscene1 : MonoBehaviour
 {
@@ -15,6 +16,11 @@ public class Cutscene1 : MonoBehaviour
     public bool isTransition = false;
     public GameObject player;
     public GameObject main;
+
+    [SerializeField] private InventoryControl inventoryControl;
+    [SerializeField] private LocationControl locationControl;
+    [SerializeField] private NPCInteractionControl npcInteractionControl;
+    [SerializeField] private DataManager dataManager;
 
     // Start is called before the first frame update
     void Start()
@@ -43,6 +49,7 @@ public class Cutscene1 : MonoBehaviour
 
     public IEnumerator StartTransition(int scene)
     {
+        Save(scene);
         source.Play();
         Movement.instance.isInteracting = true;
         isTransition = true;
@@ -58,7 +65,7 @@ public class Cutscene1 : MonoBehaviour
         isTransition = true;
         Movement.instance.isInteracting = true;
         animator.SetBool("Fade", false);
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
         player.transform.position = position;
         player.transform.eulerAngles = new Vector2(0, rotation);
         if (camera != Vector3.zero)
@@ -97,4 +104,50 @@ public class Cutscene1 : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         main = GameObject.FindGameObjectWithTag("MainCamera");
     }
+
+    private void Save(int index)
+    {
+        PlayerModel model = new();
+
+        List<int> evidenceIDList = new();
+        foreach(Evidence e in inventoryControl.evidencesID)
+        {
+            evidenceIDList.Add(e.ID);
+        }
+
+        model.evidenceIDList = evidenceIDList;
+        model.locationList = locationControl.locationNames;
+        model.firstTimeInteractionList = npcInteractionControl.firstTime;
+        model.currentScene = index;
+        dataManager.SaveData(model);
+    }
+
+    public byte[] SpriteToByteArray(Sprite sprite)
+    {
+        Texture2D texture = sprite.texture;
+
+        if (!texture.isReadable)
+        {
+            Debug.LogError("Texture is not readable. Check import settings.");
+            return null;
+        }
+
+        Texture2D newTexture = new((int)sprite.rect.width, (int)sprite.rect.height);
+
+        Color[] pixels = texture.GetPixels(
+            (int)sprite.textureRect.x,
+            (int)sprite.textureRect.y,
+            (int)sprite.textureRect.width,
+            (int)sprite.textureRect.height
+        );
+
+        newTexture.SetPixels(pixels);
+        newTexture.Apply();
+
+        byte[] bytes = newTexture.EncodeToPNG();
+
+        Destroy(newTexture);
+        return bytes;
+    }
+
 }

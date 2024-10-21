@@ -49,12 +49,18 @@ public class InventoryControl : MonoBehaviour
     public void ExecuteButton(int index)
     {
         if (!DialogueControl.Instance.isPlaying) return;
-        DialogueControl.Instance.ShowEvidence(Movement.instance.interacting.GetComponent<NPCControl>().evidenceResponse[index]);
+
+        if (!Movement.instance.interacting.GetComponent<NPCControl>())
+        {
+            DialogueControl.Instance.NonSense();
+        }
+        else DialogueControl.Instance.ShowEvidence(Movement.instance.interacting.GetComponent<NPCControl>().evidenceResponse[index]);
         GetComponent<InventoryControl>().enabled = false;
         Movement.instance.openInventory = false;
         transform.GetChild(0).gameObject.SetActive(false);
         GetComponent<Image>().enabled = false;
         DialogueControl.Instance.dialogueText.gameObject.SetActive(true);
+        DialogueControl.Instance.speakerText.gameObject.SetActive(true);
         Close();
     }
 

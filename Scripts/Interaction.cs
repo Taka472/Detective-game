@@ -49,6 +49,8 @@ public class Interaction : MonoBehaviour
                     {
                         dialogueControl.characterPositionChange = GetComponent<PositionChange>().playerPosition;
                         dialogueControl.cameraPositionChange = GetComponent<PositionChange>().cameraPosition;
+                        dialogueControl.minSpace = GetComponent<PositionChange>().minSpace;
+                        dialogueControl.maxSpace = GetComponent<PositionChange>().maxSpace;
                     }
                     else if (GetComponent<NPCControl>() != null)
                     {

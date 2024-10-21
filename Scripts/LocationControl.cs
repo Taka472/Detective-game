@@ -8,6 +8,7 @@ using UnityEngine.EventSystems;
 public class LocationControl : MonoBehaviour
 {
     public static LocationControl instance;
+    public GameObject locationTitle;
     public List<string> locationNames;
     public Button[] buttons;
 
@@ -26,15 +27,21 @@ public class LocationControl : MonoBehaviour
             buttons[i].transform.GetChild(0).GetComponent<Text>().text = locationNames[i];
             buttons[i].transform.GetChild(0).GetComponent<Text>().color = Color.white;
         }
+        for (int i = locationNames.Count; i < buttons.Length; i++)
+        {
+            buttons[i].gameObject.SetActive(true);
+            buttons[i].transform.GetChild(0).GetComponent<Text>().text = "?";
+        }
         buttons[SceneManager.GetActiveScene().buildIndex - 1].transform.GetChild(0).GetComponent<Text>().color = Color.yellow;
         EventSystem.current.SetSelectedGameObject(buttons[0].gameObject);
     }
 
     public void ExecuteButton(int index)
     {
-        if (SceneManager.GetActiveScene().buildIndex != index + 1) return;
-        else Cutscene1.instance.DummyTransition(index + 1);
+        if (index + 1 > locationNames.Count) return;
+        Cutscene1.instance.DummyTransition(index + 1);
         gameObject.SetActive(false);
+        locationTitle.SetActive(false);
     }
 
     public void Disable()
