@@ -14,7 +14,11 @@ public class Interaction : MonoBehaviour
     public int playerRotation;
 
     [Header("Ink JSON")]
-    [SerializeField] public TextAsset inkJSON;
+    public TextAsset inkJSON;
+
+    [SerializeField] private GameObject pauseMenu;
+
+    [SerializeField] private KeyBindDictionary keys;
 
     private void OnDrawGizmosSelected()
     {
@@ -24,12 +28,13 @@ public class Interaction : MonoBehaviour
 
     private void Update()
     {
+        if (pauseMenu.activeSelf) return;
         CheckInteract();
     }
 
     void CheckInteract()
     {
-        if (Input.GetKeyDown(KeyCode.X))
+        if (Input.GetKeyDown(keys.GetDictionary()["Interact"]))
         {
             if (Cutscene1.instance.isTransition || Movement.instance.openInventory) return;
             else if (Vector2.Distance(transform.position, player.position) <= radius)

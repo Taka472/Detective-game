@@ -21,6 +21,8 @@ public class Movement : MonoBehaviour
     public GameObject interactKey;
     public GameObject[] interactables;
 
+    [SerializeField] private KeyBindDictionary keys;
+
     private void Start()
     {
         instance = this;
@@ -40,13 +42,17 @@ public class Movement : MonoBehaviour
         else if (interacting != null && interacting.GetComponent<NPCControl>() == null)
             Interact();
         else Idle();
-        if (Input.GetKeyDown(KeyCode.Z) && Cutscene1.instance.hasPlayed)
+        if (Input.GetKeyDown(keys.GetDictionary()["OpenInventory"]) && Cutscene1.instance.hasPlayed)
             OpenInventory();
     }
 
     private void Move()
     {
-        float x = Input.GetAxisRaw("Horizontal");
+        float x;
+
+        if (Input.GetKey(keys.GetDictionary()["WalkLeft"])) x = -1;
+        else if (Input.GetKey(keys.GetDictionary()["WalkRight"])) x = 1;
+        else x = 0;
 
         /*if (SceneManager.GetActiveScene().buildIndex == 0)
         {

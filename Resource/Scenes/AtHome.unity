@@ -645,6 +645,8 @@ MonoBehaviour:
   sceneChange: 0
   playerRotation: 0
   inkJSON: {fileID: 4900000, guid: 9d12c1a3f6d9ae84e95324b6f51db261, type: 3}
+  pauseMenu: {fileID: 1284593697}
+  keys: {fileID: 1584118047}
 --- !u!1001 &1209688608
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -736,6 +738,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 893920702806718963, guid: 7c443b8f220938140bb0c860a60c45e6, type: 3}
+      propertyPath: dataManager
+      value: 
+      objectReference: {fileID: 1209688609}
     - target: {fileID: 1752099410490945795, guid: 7c443b8f220938140bb0c860a60c45e6, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -836,6 +842,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7386370948193210107, guid: 7c443b8f220938140bb0c860a60c45e6, type: 3}
+      propertyPath: dataManager
+      value: 
+      objectReference: {fileID: 1209688609}
     - target: {fileID: 8585549339154467600, guid: 7c443b8f220938140bb0c860a60c45e6, type: 3}
       propertyPath: m_FontData.m_FontSize
       value: 20
@@ -944,6 +954,8 @@ MonoBehaviour:
   sceneChange: 1
   playerRotation: 0
   inkJSON: {fileID: 4900000, guid: 3f76cea3066f63a4fa0c6ee18bdf67f0, type: 3}
+  pauseMenu: {fileID: 1284593697}
+  keys: {fileID: 1584118047}
 --- !u!1 &1378068309
 GameObject:
   m_ObjectHideFlags: 0
@@ -1191,6 +1203,8 @@ MonoBehaviour:
   sceneChange: 0
   playerRotation: 0
   inkJSON: {fileID: 4900000, guid: da22f27860a78774887ad8b9829c76d5, type: 3}
+  pauseMenu: {fileID: 1284593697}
+  keys: {fileID: 1584118047}
 --- !u!1001 &1557535811
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1259,9 +1273,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1284593693}
     - target: {fileID: 8633400039551506924, guid: 9cdbfb8d028ff364a8a32f4c988716f9, type: 3}
+      propertyPath: keys
+      value: 
+      objectReference: {fileID: 1584118047}
+    - target: {fileID: 8633400039551506924, guid: 9cdbfb8d028ff364a8a32f4c988716f9, type: 3}
       propertyPath: inventory
       value: 
       objectReference: {fileID: 1284593695}
+    - target: {fileID: 8633400039551506924, guid: 9cdbfb8d028ff364a8a32f4c988716f9, type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 1284593697}
     - target: {fileID: 8633400039551506924, guid: 9cdbfb8d028ff364a8a32f4c988716f9, type: 3}
       propertyPath: npcControl
       value: 
@@ -1280,6 +1302,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cdbfb8d028ff364a8a32f4c988716f9, type: 3}
+--- !u!114 &1584118047 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7386370948193210107, guid: 7c443b8f220938140bb0c860a60c45e6, type: 3}
+  m_PrefabInstance: {fileID: 1284593692}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f4da8117f5150c4e8bc463f67f324e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1602307492
 GameObject:
   m_ObjectHideFlags: 0
@@ -1369,6 +1402,8 @@ MonoBehaviour:
   sceneChange: 0
   playerRotation: 0
   inkJSON: {fileID: 4900000, guid: acb5cb1148b69ae40979e926c0222d48, type: 3}
+  pauseMenu: {fileID: 1284593697}
+  keys: {fileID: 1584118047}
 --- !u!1 &1999699082
 GameObject:
   m_ObjectHideFlags: 0
@@ -1637,6 +1672,8 @@ MonoBehaviour:
   sceneChange: 0
   playerRotation: 0
   inkJSON: {fileID: 4900000, guid: 26b402ac0a03a7d42a5d6712f09b8e1f, type: 3}
+  pauseMenu: {fileID: 1284593697}
+  keys: {fileID: 1584118047}
 --- !u!1 &2068286525
 GameObject:
   m_ObjectHideFlags: 0
@@ -1690,6 +1727,8 @@ MonoBehaviour:
   sceneChange: 0
   playerRotation: 0
   inkJSON: {fileID: 4900000, guid: d9c0982748a6dc747a7a5fd2fb7cfd90, type: 3}
+  pauseMenu: {fileID: 1284593697}
+  keys: {fileID: 1584118047}
 --- !u!1 &2102004946
 GameObject:
   m_ObjectHideFlags: 0
@@ -1815,6 +1854,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 1000
       objectReference: {fileID: 0}
+    - target: {fileID: 4499156284079934678, guid: d4fb300c5f5d4224eaf9647e82fde6ee, type: 3}
+      propertyPath: keys
+      value: 
+      objectReference: {fileID: 1584118047}
     - target: {fileID: 4499156284079934678, guid: d4fb300c5f5d4224eaf9647e82fde6ee, type: 3}
       propertyPath: interactables.Array.size
       value: 6

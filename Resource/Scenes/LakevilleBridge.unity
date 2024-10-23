@@ -623,6 +623,8 @@ MonoBehaviour:
   sceneChange: 0
   playerRotation: 0
   inkJSON: {fileID: 4900000, guid: f2b4824e597466247abcfcd35b05bb12, type: 3}
+  pauseMenu: {fileID: 1468369637}
+  keys: {fileID: 1796667296}
 --- !u!1 &240499935
 GameObject:
   m_ObjectHideFlags: 0
@@ -1088,6 +1090,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 893920702806718963, guid: 7c443b8f220938140bb0c860a60c45e6, type: 3}
+      propertyPath: dataManager
+      value: 
+      objectReference: {fileID: 637660180}
     - target: {fileID: 1752099410490945795, guid: 7c443b8f220938140bb0c860a60c45e6, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1180,6 +1186,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 7386370948193210107, guid: 7c443b8f220938140bb0c860a60c45e6, type: 3}
+      propertyPath: dataManager
+      value: 
+      objectReference: {fileID: 637660180}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c443b8f220938140bb0c860a60c45e6, type: 3}
 --- !u!114 &363488036 stripped
@@ -2143,6 +2153,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 310330417}
     - target: {fileID: 4499156284079934678, guid: d4fb300c5f5d4224eaf9647e82fde6ee, type: 3}
+      propertyPath: keys
+      value: 
+      objectReference: {fileID: 1796667296}
+    - target: {fileID: 4499156284079934678, guid: d4fb300c5f5d4224eaf9647e82fde6ee, type: 3}
       propertyPath: maxSpace
       value: 9.03
       objectReference: {fileID: 0}
@@ -2597,6 +2611,8 @@ MonoBehaviour:
   sceneChange: 1
   playerRotation: 0
   inkJSON: {fileID: 4900000, guid: b5be9a8387d360943ba5b62e85db395b, type: 3}
+  pauseMenu: {fileID: 1468369637}
+  keys: {fileID: 1796667296}
 --- !u!212 &1089322797
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3252,6 +3268,8 @@ MonoBehaviour:
   sceneChange: 0
   playerRotation: 0
   inkJSON: {fileID: 4900000, guid: d565fc259bc80664f80affcb636dd67e, type: 3}
+  pauseMenu: {fileID: 1468369637}
+  keys: {fileID: 1796667296}
 --- !u!1 &1438590084
 GameObject:
   m_ObjectHideFlags: 0
@@ -3900,6 +3918,17 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &1796667296 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7386370948193210107, guid: 7c443b8f220938140bb0c860a60c45e6, type: 3}
+  m_PrefabInstance: {fileID: 363488035}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f4da8117f5150c4e8bc463f67f324e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1821431465
 GameObject:
   m_ObjectHideFlags: 0
@@ -4005,9 +4034,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 363488036}
     - target: {fileID: 8633400039551506924, guid: 9cdbfb8d028ff364a8a32f4c988716f9, type: 3}
+      propertyPath: keys
+      value: 
+      objectReference: {fileID: 1796667296}
+    - target: {fileID: 8633400039551506924, guid: 9cdbfb8d028ff364a8a32f4c988716f9, type: 3}
       propertyPath: inventory
       value: 
       objectReference: {fileID: 363488039}
+    - target: {fileID: 8633400039551506924, guid: 9cdbfb8d028ff364a8a32f4c988716f9, type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 1468369637}
     - target: {fileID: 8633400039551506924, guid: 9cdbfb8d028ff364a8a32f4c988716f9, type: 3}
       propertyPath: npcControl
       value: 

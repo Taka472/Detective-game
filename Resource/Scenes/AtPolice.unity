@@ -164,6 +164,8 @@ MonoBehaviour:
   sceneChange: 0
   playerRotation: 0
   inkJSON: {fileID: 4900000, guid: cb9521a6f904fb14fbf9ee3ea9b3ebdc, type: 3}
+  pauseMenu: {fileID: 0}
+  keys: {fileID: 0}
 --- !u!114 &94715443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -520,6 +522,8 @@ MonoBehaviour:
   sceneChange: 0
   playerRotation: 0
   inkJSON: {fileID: 4900000, guid: cb9521a6f904fb14fbf9ee3ea9b3ebdc, type: 3}
+  pauseMenu: {fileID: 2716487775663097134}
+  keys: {fileID: 2716487775663097135}
 --- !u!114 &364306491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -606,6 +610,8 @@ MonoBehaviour:
   sceneChange: 0
   playerRotation: 0
   inkJSON: {fileID: 4900000, guid: 1fcba0a14ae30c645b01fd381ed106a0, type: 3}
+  pauseMenu: {fileID: 2716487775663097134}
+  keys: {fileID: 2716487775663097135}
 --- !u!1 &559739831
 GameObject:
   m_ObjectHideFlags: 0
@@ -1452,6 +1458,8 @@ MonoBehaviour:
   sceneChange: 0
   playerRotation: 0
   inkJSON: {fileID: 4900000, guid: 6bbbade8cbdfbbe41a35970c976ff976, type: 3}
+  pauseMenu: {fileID: 2716487775663097134}
+  keys: {fileID: 2716487775663097135}
 --- !u!1 &1630636303
 GameObject:
   m_ObjectHideFlags: 0
@@ -1523,6 +1531,8 @@ MonoBehaviour:
   sceneChange: 0
   playerRotation: 0
   inkJSON: {fileID: 4900000, guid: 994bc32e298e0cb46ad6e667a61a44a3, type: 3}
+  pauseMenu: {fileID: 2716487775663097134}
+  keys: {fileID: 2716487775663097135}
 --- !u!1 &1654353206
 GameObject:
   m_ObjectHideFlags: 0
@@ -1594,6 +1604,8 @@ MonoBehaviour:
   sceneChange: 0
   playerRotation: 0
   inkJSON: {fileID: 4900000, guid: 9b2902404c5029e4dbb7313204c68e3a, type: 3}
+  pauseMenu: {fileID: 2716487775663097134}
+  keys: {fileID: 2716487775663097135}
 --- !u!1 &1705799653
 GameObject:
   m_ObjectHideFlags: 0
@@ -1687,6 +1699,8 @@ MonoBehaviour:
   sceneChange: 0
   playerRotation: 0
   inkJSON: {fileID: 4900000, guid: f8cd70324e312554999ee30abcefa5c0, type: 3}
+  pauseMenu: {fileID: 2716487775663097134}
+  keys: {fileID: 2716487775663097135}
 --- !u!1 &1837249988
 GameObject:
   m_ObjectHideFlags: 0
@@ -1758,6 +1772,8 @@ MonoBehaviour:
   sceneChange: 0
   playerRotation: 0
   inkJSON: {fileID: 4900000, guid: a7add7f06f0df8a47bede7a1774daf37, type: 3}
+  pauseMenu: {fileID: 2716487775663097134}
+  keys: {fileID: 2716487775663097135}
 --- !u!1 &1881234424
 GameObject:
   m_ObjectHideFlags: 0
@@ -1812,6 +1828,8 @@ MonoBehaviour:
   sceneChange: 0
   playerRotation: 0
   inkJSON: {fileID: 4900000, guid: c7ab45ec54be49746a158eeac63e7009, type: 3}
+  pauseMenu: {fileID: 2716487775663097134}
+  keys: {fileID: 2716487775663097135}
 --- !u!114 &1881234427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1844,6 +1862,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 1000
       objectReference: {fileID: 0}
+    - target: {fileID: 4499156284079934678, guid: d4fb300c5f5d4224eaf9647e82fde6ee, type: 3}
+      propertyPath: keys
+      value: 
+      objectReference: {fileID: 2716487775663097135}
     - target: {fileID: 4499156284079934678, guid: d4fb300c5f5d4224eaf9647e82fde6ee, type: 3}
       propertyPath: maxSpace
       value: 8.3
@@ -2441,6 +2463,8 @@ MonoBehaviour:
   sceneChange: 1
   playerRotation: 0
   inkJSON: {fileID: 4900000, guid: f674476a1c023034f869eff1a6bd3553, type: 3}
+  pauseMenu: {fileID: 2716487775663097134}
+  keys: {fileID: 2716487775663097135}
 --- !u!212 &2138458887
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2683,6 +2707,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 893920702806718963, guid: 7c443b8f220938140bb0c860a60c45e6, type: 3}
+      propertyPath: dataManager
+      value: 
+      objectReference: {fileID: 1174562008}
     - target: {fileID: 1752099410490945795, guid: 7c443b8f220938140bb0c860a60c45e6, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -2807,6 +2835,10 @@ PrefabInstance:
       propertyPath: dialogues.Array.data[2]
       value: 
       objectReference: {fileID: 4900000, guid: 1671fdb4ff1ada6458ffe60896f87688, type: 3}
+    - target: {fileID: 7386370948193210107, guid: 7c443b8f220938140bb0c860a60c45e6, type: 3}
+      propertyPath: dataManager
+      value: 
+      objectReference: {fileID: 1174562008}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c443b8f220938140bb0c860a60c45e6, type: 3}
 --- !u!1 &2716487775663097134 stripped
@@ -2814,6 +2846,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5229125367895592352, guid: 7c443b8f220938140bb0c860a60c45e6, type: 3}
   m_PrefabInstance: {fileID: 2716487775663097133}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2716487775663097135 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7386370948193210107, guid: 7c443b8f220938140bb0c860a60c45e6, type: 3}
+  m_PrefabInstance: {fileID: 2716487775663097133}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f4da8117f5150c4e8bc463f67f324e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8633400039922550943
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2882,9 +2925,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 287114679}
     - target: {fileID: 8633400039551506924, guid: 9cdbfb8d028ff364a8a32f4c988716f9, type: 3}
+      propertyPath: keys
+      value: 
+      objectReference: {fileID: 2716487775663097135}
+    - target: {fileID: 8633400039551506924, guid: 9cdbfb8d028ff364a8a32f4c988716f9, type: 3}
       propertyPath: inventory
       value: 
       objectReference: {fileID: 972942680}
+    - target: {fileID: 8633400039551506924, guid: 9cdbfb8d028ff364a8a32f4c988716f9, type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 2716487775663097134}
     - target: {fileID: 8633400039551506924, guid: 9cdbfb8d028ff364a8a32f4c988716f9, type: 3}
       propertyPath: npcControl
       value: 
