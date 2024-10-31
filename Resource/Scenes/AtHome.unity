@@ -281,6 +281,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &351365851 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2716487776331294841, guid: 7c443b8f220938140bb0c860a60c45e6, type: 3}
+  m_PrefabInstance: {fileID: 1284593692}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &426361526 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2716487774486552865, guid: 7c443b8f220938140bb0c860a60c45e6, type: 3}
+  m_PrefabInstance: {fileID: 1284593692}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -318,7 +328,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -514,17 +524,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4499156284079934679, guid: d4fb300c5f5d4224eaf9647e82fde6ee, type: 3}
   m_PrefabInstance: {fileID: 4499156284675900725}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &770200308 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8585549339154467600, guid: 7c443b8f220938140bb0c860a60c45e6, type: 3}
-  m_PrefabInstance: {fileID: 1284593692}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &929376011
 GameObject:
   m_ObjectHideFlags: 0
@@ -592,6 +591,16 @@ MonoBehaviour:
   m_InputActionsPerSecond: 10
   m_RepeatDelay: 0.5
   m_ForceModuleActive: 0
+--- !u!1 &1024758863 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4499156284079934698, guid: d4fb300c5f5d4224eaf9647e82fde6ee, type: 3}
+  m_PrefabInstance: {fileID: 4499156284675900725}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1056887939 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4604546500540451306, guid: 7c443b8f220938140bb0c860a60c45e6, type: 3}
+  m_PrefabInstance: {fileID: 1284593692}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1140734666
 GameObject:
   m_ObjectHideFlags: 0
@@ -638,12 +647,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 0.7
   player: {fileID: 748669410}
-  dialogueControl: {fileID: 1284593696}
   inventory: {fileID: 1284593695}
   npcControl: {fileID: 1284593693}
   locationControl: {fileID: 1284593694}
   sceneChange: 0
   playerRotation: 0
+  NPC: {fileID: 0}
+  positionChange: {fileID: 0}
   inkJSON: {fileID: 4900000, guid: 9d12c1a3f6d9ae84e95324b6f51db261, type: 3}
   pauseMenu: {fileID: 1284593697}
   keys: {fileID: 1584118047}
@@ -742,14 +752,10 @@ PrefabInstance:
       propertyPath: dataManager
       value: 
       objectReference: {fileID: 1209688609}
-    - target: {fileID: 1752099410490945795, guid: 7c443b8f220938140bb0c860a60c45e6, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2716487776045027238, guid: 7c443b8f220938140bb0c860a60c45e6, type: 3}
-      propertyPath: speakerText
+    - target: {fileID: 2716487776572855968, guid: 7c443b8f220938140bb0c860a60c45e6, type: 3}
+      propertyPath: m_Camera
       value: 
-      objectReference: {fileID: 770200308}
+      objectReference: {fileID: 519420031}
     - target: {fileID: 2716487776572855971, guid: 7c443b8f220938140bb0c860a60c45e6, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -838,18 +844,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 4065496239541474396, guid: 7c443b8f220938140bb0c860a60c45e6, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7386370948193210107, guid: 7c443b8f220938140bb0c860a60c45e6, type: 3}
       propertyPath: dataManager
       value: 
       objectReference: {fileID: 1209688609}
-    - target: {fileID: 8585549339154467600, guid: 7c443b8f220938140bb0c860a60c45e6, type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 20
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c443b8f220938140bb0c860a60c45e6, type: 3}
 --- !u!114 &1284593693 stripped
@@ -879,7 +877,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2716487776331294837, guid: 7c443b8f220938140bb0c860a60c45e6, type: 3}
   m_PrefabInstance: {fileID: 1284593692}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 351365851}
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b1def43cb84b6854a966ec937d837ceb, type: 3}
@@ -947,15 +945,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 0.5
   player: {fileID: 748669410}
-  dialogueControl: {fileID: 1284593696}
   inventory: {fileID: 1284593695}
   npcControl: {fileID: 1284593693}
   locationControl: {fileID: 1284593694}
   sceneChange: 1
   playerRotation: 0
+  NPC: {fileID: 0}
+  positionChange: {fileID: 0}
   inkJSON: {fileID: 4900000, guid: 3f76cea3066f63a4fa0c6ee18bdf67f0, type: 3}
   pauseMenu: {fileID: 1284593697}
   keys: {fileID: 1584118047}
+--- !u!1 &1347801987 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8735182558527474120, guid: 7c443b8f220938140bb0c860a60c45e6, type: 3}
+  m_PrefabInstance: {fileID: 1284593692}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1347801988 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7717684138231743293, guid: 7c443b8f220938140bb0c860a60c45e6, type: 3}
+  m_PrefabInstance: {fileID: 1284593692}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1378068309
 GameObject:
   m_ObjectHideFlags: 0
@@ -1196,12 +1205,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 1.6
   player: {fileID: 748669410}
-  dialogueControl: {fileID: 1284593696}
   inventory: {fileID: 1284593695}
   npcControl: {fileID: 1284593693}
   locationControl: {fileID: 1284593694}
   sceneChange: 0
   playerRotation: 0
+  NPC: {fileID: 0}
+  positionChange: {fileID: 0}
   inkJSON: {fileID: 4900000, guid: da22f27860a78774887ad8b9829c76d5, type: 3}
   pauseMenu: {fileID: 1284593697}
   keys: {fileID: 1584118047}
@@ -1257,6 +1267,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8633400039551506923, guid: 9cdbfb8d028ff364a8a32f4c988716f9, type: 3}
+      propertyPath: main
+      value: 
+      objectReference: {fileID: 519420031}
+    - target: {fileID: 8633400039551506923, guid: 9cdbfb8d028ff364a8a32f4c988716f9, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1024758863}
+    - target: {fileID: 8633400039551506923, guid: 9cdbfb8d028ff364a8a32f4c988716f9, type: 3}
       propertyPath: dataManager
       value: 
       objectReference: {fileID: 1209688609}
@@ -1276,6 +1294,10 @@ PrefabInstance:
       propertyPath: keys
       value: 
       objectReference: {fileID: 1584118047}
+    - target: {fileID: 8633400039551506924, guid: 9cdbfb8d028ff364a8a32f4c988716f9, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 748669410}
     - target: {fileID: 8633400039551506924, guid: 9cdbfb8d028ff364a8a32f4c988716f9, type: 3}
       propertyPath: inventory
       value: 
@@ -1299,6 +1321,10 @@ PrefabInstance:
     - target: {fileID: 8633400039551506926, guid: 9cdbfb8d028ff364a8a32f4c988716f9, type: 3}
       propertyPath: m_Name
       value: Cutscene
+      objectReference: {fileID: 0}
+    - target: {fileID: 8633400039551506926, guid: 9cdbfb8d028ff364a8a32f4c988716f9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cdbfb8d028ff364a8a32f4c988716f9, type: 3}
@@ -1395,12 +1421,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 0.7
   player: {fileID: 748669410}
-  dialogueControl: {fileID: 1284593696}
   inventory: {fileID: 1284593695}
   npcControl: {fileID: 1284593693}
   locationControl: {fileID: 1284593694}
   sceneChange: 0
   playerRotation: 0
+  NPC: {fileID: 0}
+  positionChange: {fileID: 0}
   inkJSON: {fileID: 4900000, guid: acb5cb1148b69ae40979e926c0222d48, type: 3}
   pauseMenu: {fileID: 1284593697}
   keys: {fileID: 1584118047}
@@ -1665,12 +1692,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 0.7
   player: {fileID: 748669410}
-  dialogueControl: {fileID: 1284593696}
   inventory: {fileID: 1284593695}
   npcControl: {fileID: 1284593693}
   locationControl: {fileID: 1284593694}
   sceneChange: 0
   playerRotation: 0
+  NPC: {fileID: 0}
+  positionChange: {fileID: 0}
   inkJSON: {fileID: 4900000, guid: 26b402ac0a03a7d42a5d6712f09b8e1f, type: 3}
   pauseMenu: {fileID: 1284593697}
   keys: {fileID: 1584118047}
@@ -1720,12 +1748,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 0.5
   player: {fileID: 748669410}
-  dialogueControl: {fileID: 1284593696}
   inventory: {fileID: 1284593695}
   npcControl: {fileID: 1284593693}
   locationControl: {fileID: 1284593694}
   sceneChange: 0
   playerRotation: 0
+  NPC: {fileID: 0}
+  positionChange: {fileID: 0}
   inkJSON: {fileID: 4900000, guid: d9c0982748a6dc747a7a5fd2fb7cfd90, type: 3}
   pauseMenu: {fileID: 1284593697}
   keys: {fileID: 1584118047}
@@ -1859,33 +1888,57 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1584118047}
     - target: {fileID: 4499156284079934678, guid: d4fb300c5f5d4224eaf9647e82fde6ee, type: 3}
+      propertyPath: Inventory
+      value: 
+      objectReference: {fileID: 351365851}
+    - target: {fileID: 4499156284079934678, guid: d4fb300c5f5d4224eaf9647e82fde6ee, type: 3}
+      propertyPath: logButton
+      value: 
+      objectReference: {fileID: 1347801988}
+    - target: {fileID: 4499156284079934678, guid: d4fb300c5f5d4224eaf9647e82fde6ee, type: 3}
+      propertyPath: DialogueLog
+      value: 
+      objectReference: {fileID: 1056887939}
+    - target: {fileID: 4499156284079934678, guid: d4fb300c5f5d4224eaf9647e82fde6ee, type: 3}
+      propertyPath: dialogueChoice
+      value: 
+      objectReference: {fileID: 426361526}
+    - target: {fileID: 4499156284079934678, guid: d4fb300c5f5d4224eaf9647e82fde6ee, type: 3}
+      propertyPath: inventoryButton
+      value: 
+      objectReference: {fileID: 1347801987}
+    - target: {fileID: 4499156284079934678, guid: d4fb300c5f5d4224eaf9647e82fde6ee, type: 3}
+      propertyPath: inventoryControl
+      value: 
+      objectReference: {fileID: 1284593695}
+    - target: {fileID: 4499156284079934678, guid: d4fb300c5f5d4224eaf9647e82fde6ee, type: 3}
       propertyPath: interactables.Array.size
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4499156284079934678, guid: d4fb300c5f5d4224eaf9647e82fde6ee, type: 3}
       propertyPath: interactables.Array.data[0]
       value: 
-      objectReference: {fileID: 1464243496}
+      objectReference: {fileID: 1464243499}
     - target: {fileID: 4499156284079934678, guid: d4fb300c5f5d4224eaf9647e82fde6ee, type: 3}
       propertyPath: interactables.Array.data[1]
       value: 
-      objectReference: {fileID: 2048394668}
+      objectReference: {fileID: 2048394670}
     - target: {fileID: 4499156284079934678, guid: d4fb300c5f5d4224eaf9647e82fde6ee, type: 3}
       propertyPath: interactables.Array.data[2]
       value: 
-      objectReference: {fileID: 1712311894}
+      objectReference: {fileID: 1712311896}
     - target: {fileID: 4499156284079934678, guid: d4fb300c5f5d4224eaf9647e82fde6ee, type: 3}
       propertyPath: interactables.Array.data[3]
       value: 
-      objectReference: {fileID: 2068286525}
+      objectReference: {fileID: 2068286527}
     - target: {fileID: 4499156284079934678, guid: d4fb300c5f5d4224eaf9647e82fde6ee, type: 3}
       propertyPath: interactables.Array.data[4]
       value: 
-      objectReference: {fileID: 1140734666}
+      objectReference: {fileID: 1140734668}
     - target: {fileID: 4499156284079934678, guid: d4fb300c5f5d4224eaf9647e82fde6ee, type: 3}
       propertyPath: interactables.Array.data[5]
       value: 
-      objectReference: {fileID: 1324156874}
+      objectReference: {fileID: 1324156876}
     - target: {fileID: 4499156284079934679, guid: d4fb300c5f5d4224eaf9647e82fde6ee, type: 3}
       propertyPath: m_RootOrder
       value: 2

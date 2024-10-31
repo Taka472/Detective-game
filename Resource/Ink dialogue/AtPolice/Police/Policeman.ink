@@ -23,11 +23,13 @@ Just this morning, we recieved another missing report # yellow #Police officer
 Thank for sharing me the report
 No problem, you helped us a lot in these investigation #yellow #Police officer
 Henry's report added #center #addEvidence #0
-While talking to people or interacting with objects, press [Open inventory] to open inventory and use the items
+While talking to people or interacting with objects, press [Open inventory] to open inventory and use the items #yellow #Police officer
+It might help you uncover new clues, new locations and new suspects #yellow #Police officer
+Thanks, I'll have that in mind
 Oh one more thing #yellow #Police officer
 You may have already known by now #yellow #Police officer
 A dead body was found at Lakeville Bridge #yellow #Police officer
-It turned out the victim was in the missing list #yellow #Police officer
+It turned out the victim was one of the missings #yellow #Police officer
 Looks like our kidnappers, or should I say murderers had made his move #yellow #Police officer
 We need to act fast, or the missings will be killed #yellow #Police officer
 Lakeville bridge unlocked #center #addLocation #1

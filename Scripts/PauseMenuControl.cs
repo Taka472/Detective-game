@@ -17,7 +17,7 @@ public class PauseMenuControl : MonoBehaviour
 
     public void SetSelectedButton()
     {
-        EventSystem.current.SetSelectedGameObject(buttons[0].gameObject);
+        EventSystem.current.SetSelectedGameObject(buttons[2].gameObject);
     }
 
     private void OnEnable()

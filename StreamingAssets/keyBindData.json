@@ -23,6 +23,14 @@
         {
             "key": "DialogueLog",
             "value": "V"
+        },
+        {
+            "key": "ScrollUp",
+            "value": "W"
+        },
+        {
+            "key": "ScrollDown",
+            "value": "S"
         }
     ]
 }

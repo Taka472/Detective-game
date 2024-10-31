@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class DialogueControl : MonoBehaviour
 {
-    private static DialogueControl instance;
+    public static DialogueControl instance;
     public bool isTyping = false;
     public Text dialogueText;
     public Text speakerText;
@@ -40,9 +40,12 @@ public class DialogueControl : MonoBehaviour
     public Vector3 cameraPositionChange;
     public float maxSpace;
     public float minSpace;
-    public Canvas mainCanvas;
 
     [SerializeField] private NonSenseScript nonSenseScript;
+
+    [SerializeField] private DialogueLogControl dialogueLogControl;
+
+    public Canvas canvas;
 
     private void Awake()
     {
@@ -55,8 +58,6 @@ public class DialogueControl : MonoBehaviour
         // DontDestroyOnLoad(GameObject.Find("Canvas"));
         // DontDestroyOnLoad(GameObject.FindGameObjectWithTag("EventSystem"));
     }
-
-    public static DialogueControl Instance { get { return instance; } }
 
     private void Start()
     {
@@ -93,14 +94,16 @@ public class DialogueControl : MonoBehaviour
     private void ExitDialogue()
     {
         StopAllCoroutines();
+        dialogueLogControl.ClearLog();
         isPlaying = false;
         Movement.instance.isInteracting = false;
         animator.SetBool("isOpen", false);
         dialogueText.text = "";
         speakerText.text = "";
         if (Movement.instance.interacting != null)
-            if (Movement.instance.interacting.GetComponent<NPCControl>() != null)
-                StartCoroutine(Movement.instance.interacting.GetComponent<NPCControl>().StopInteraction());
+            if (Movement.instance.npcControl != null)
+                StartCoroutine(Movement.instance.npcControl.StopInteraction());
+        Movement.instance.npcControl = null;
     }
 
     public void ContinueStory()
@@ -121,6 +124,8 @@ public class DialogueControl : MonoBehaviour
     IEnumerator TypeText(string sentences)
     {
         int index = 0;
+        dialogueLogControl.AddLog(new(currentStory.currentTags.Count != 0 ? Color.yellow : Color.white,
+            currentStory.currentTags.Count != 0 ? currentStory.currentTags[1] : "Detective", sentences));
         dialogueText.color = Color.white;
         dialogueText.alignment = TextAnchor.UpperLeft;
         speakerText.text = "Detective";
@@ -138,7 +143,7 @@ public class DialogueControl : MonoBehaviour
                     }
                 case "add":
                     {
-                        npcControl.firstTime.Add(Movement.instance.interacting.GetComponent<NPCControl>().NPCID);
+                        npcControl.firstTime.Add(Movement.instance.npcControl.NPCID);
                         break;
                     }
                 case "center":
@@ -276,6 +281,8 @@ public class DialogueControl : MonoBehaviour
         {
             int index = 0;
             List<Choice> currentChoices = currentStory.currentChoices;
+            dialogueLogControl.AddLog(new(currentStory.currentTags.Count != 0 ? Color.yellow : Color.white,
+                currentStory.currentTags.Count != 0 ? currentStory.currentTags[1] : "Detective", currentChoices[0].text));
             currentStory.ChooseChoiceIndex(0);
             foreach (Choice choice in currentChoices)
             {
@@ -305,6 +312,8 @@ public class DialogueControl : MonoBehaviour
     {
         int index = 0;
         List<Choice> currentChoices = currentStory.currentChoices;
+        dialogueLogControl.AddLog(new(currentStory.currentTags.Count != 0 ? Color.yellow : Color.white,
+                currentStory.currentTags.Count != 0 ? currentStory.currentTags[1] : "Detective", currentChoices[1].text));
         currentStory.ChooseChoiceIndex(1);
         if (!normalChoice) currentStory.Continue();
         foreach (Choice choice in currentChoices)
@@ -317,7 +326,7 @@ public class DialogueControl : MonoBehaviour
 
     public void Update()
     {
-        GameObject.Find("Canvas").GetComponent<Canvas>().worldCamera = Cutscene1.instance.main.GetComponent<Camera>();
+        canvas.worldCamera = Cutscene1.instance.main;
     }
 
     public void NonSense()
@@ -328,5 +337,11 @@ public class DialogueControl : MonoBehaviour
             StopAllCoroutines();
             StartCoroutine(TypeText(currentStory.currentText));
         }
+    }
+
+    public void ToggleText(bool boolean)
+    {
+        dialogueText.gameObject.SetActive(boolean);
+        speakerText.gameObject.SetActive(boolean);
     }
 }

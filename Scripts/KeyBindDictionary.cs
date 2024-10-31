@@ -18,6 +18,8 @@ public class KeyBindDictionary : MonoBehaviour
     {
         keys.Add("WalkLeft", KeyCode.A);
         keys.Add("WalkRight", KeyCode.D);
+        keys.Add("ScrollUp", KeyCode.W);
+        keys.Add("ScrollDown", KeyCode.S);
         keys.Add("Interact", KeyCode.X);
         keys.Add("OpenInventory", KeyCode.Z);
         keys.Add("OpenSuspects", KeyCode.C);

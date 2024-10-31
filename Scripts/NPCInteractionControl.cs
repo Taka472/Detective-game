@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class NPCInteractionControl : MonoBehaviour
 {
-    public List<int> firstTime;
+    public List<int> firstTime = new();
 }

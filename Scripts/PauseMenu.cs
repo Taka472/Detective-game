@@ -6,6 +6,12 @@ using UnityEngine.UI;
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField] private GameObject pauseMenu;
+    public static PauseMenu instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     public bool GetActive()
     {

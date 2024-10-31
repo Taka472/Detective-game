@@ -9,8 +9,11 @@ public class InventoryControl : MonoBehaviour
     public static InventoryControl instance;
     public List<Evidence> evidencesID;
     public Button[] buttons;
+    public Image[] buttonsImage;
     public Text descriptionText;
     private int index = 0;
+    public GameObject description;
+    public Image image;
 
     private void Awake()
     {
@@ -32,8 +35,8 @@ public class InventoryControl : MonoBehaviour
         {
             buttons[i].gameObject.SetActive(true);
             sc.selectedSprite = evidencesID[i].spriteSelected;
-            buttons[i].transform.GetChild(0).GetComponent<Image>().sprite = evidencesID[i].sprite;
-            buttons[i].GetComponent<Button>().spriteState = sc;
+            buttonsImage[i].sprite = evidencesID[i].sprite;
+            buttons[i].spriteState = sc;
         }
         EventSystem.current.SetSelectedGameObject(buttons[index].gameObject);
     }
@@ -48,19 +51,18 @@ public class InventoryControl : MonoBehaviour
 
     public void ExecuteButton(int index)
     {
-        if (!DialogueControl.Instance.isPlaying) return;
+        if (!DialogueControl.instance.isPlaying) return;
 
-        if (!Movement.instance.interacting.GetComponent<NPCControl>())
+        if (!Movement.instance.npcControl)
         {
-            DialogueControl.Instance.NonSense();
+            DialogueControl.instance.NonSense();
         }
-        else DialogueControl.Instance.ShowEvidence(Movement.instance.interacting.GetComponent<NPCControl>().evidenceResponse[index]);
-        GetComponent<InventoryControl>().enabled = false;
+        else DialogueControl.instance.ShowEvidence(Movement.instance.npcControl.evidenceResponse[index]);
+        enabled = false;
         Movement.instance.openInventory = false;
         transform.GetChild(0).gameObject.SetActive(false);
         GetComponent<Image>().enabled = false;
-        DialogueControl.Instance.dialogueText.gameObject.SetActive(true);
-        DialogueControl.Instance.speakerText.gameObject.SetActive(true);
+        DialogueControl.instance.ToggleText(true);
         Close();
     }
 
@@ -69,5 +71,12 @@ public class InventoryControl : MonoBehaviour
         if (evidencesID.Count == 0) return;
         int selected = EventSystem.current.currentSelectedGameObject.GetComponent<InventoryButtonIndex>().index;
         descriptionText.text = evidencesID[selected].name + "\n" + evidencesID[selected].description;
+    }
+
+    public void ToggleInvetory(bool boolean)
+    {
+        enabled = boolean;
+        image.enabled = boolean;
+        description.SetActive(boolean);
     }
 }

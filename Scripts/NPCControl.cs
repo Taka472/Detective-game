@@ -20,6 +20,7 @@ public class NPCControl : MonoBehaviour
         {
             standingLeft = true;
         }
+        Debug.Log(standingLeft + " " + isLookingLeft);        
         if (standingLeft && !isLookingLeft || !standingLeft && isLookingLeft)
         {
             animator.Play("LookAt");

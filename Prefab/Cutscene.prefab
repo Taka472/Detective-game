@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 8633400041063064176}
+  interaction: {fileID: 8633400039551506924}
   hasPlayed: 0
   source: {fileID: 8633400039551506925}
   isTransition: 0
@@ -71,13 +72,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 2.2
   player: {fileID: 0}
-  dialogueControl: {fileID: 0}
   inventory: {fileID: 0}
   npcControl: {fileID: 0}
   locationControl: {fileID: 0}
   sceneChange: 0
   playerRotation: 0
+  NPC: {fileID: 0}
+  positionChange: {fileID: 0}
   inkJSON: {fileID: 4900000, guid: 533c382c178ff5242af8c59504982fc1, type: 3}
+  pauseMenu: {fileID: 0}
+  keys: {fileID: 0}
 --- !u!82 &8633400039551506925
 AudioSource:
   m_ObjectHideFlags: 0

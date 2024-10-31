@@ -6,12 +6,15 @@ public class Interaction : MonoBehaviour
 {
     public float radius = 2;
     public Transform player;
-    public DialogueControl dialogueControl;
+    private DialogueControl dialogueControl;
     public InventoryControl inventory;
     public NPCInteractionControl npcControl;
     public LocationControl locationControl;
     public bool sceneChange;
     public int playerRotation;
+
+    public NPCControl NPC;
+    public PositionChange positionChange;
 
     [Header("Ink JSON")]
     public TextAsset inkJSON;
@@ -26,9 +29,16 @@ public class Interaction : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, radius);
     }
 
+    private void Start()
+    {
+        NPC = GetComponent<NPCControl>();
+        positionChange = GetComponent<PositionChange>();
+        dialogueControl = DialogueControl.instance;
+    }
+
     private void Update()
     {
-        if (pauseMenu.activeSelf) return;
+        if (pauseMenu.activeSelf || Movement.instance.isDialogueLog) return;
         CheckInteract();
     }
 
@@ -43,31 +53,29 @@ public class Interaction : MonoBehaviour
                 {
                     if (!dialogueControl.locationControl.gameObject.activeSelf)
                     {
-                        if (GetComponent<NPCControl>() == null)
+                        if (NPC == null)
                         {
                             StartCoroutine(dialogueControl.EnterDialogueMode(inkJSON));
-                            Movement.instance.interactKey.SetActive(false);
-                            Movement.instance.interacting = gameObject;
+                            Movement.instance.interacting = this;
                         }
                     }
-                    if (GetComponent<PositionChange>() != null)
+                    if (positionChange != null)
                     {
-                        dialogueControl.characterPositionChange = GetComponent<PositionChange>().playerPosition;
-                        dialogueControl.cameraPositionChange = GetComponent<PositionChange>().cameraPosition;
-                        dialogueControl.minSpace = GetComponent<PositionChange>().minSpace;
-                        dialogueControl.maxSpace = GetComponent<PositionChange>().maxSpace;
+                        dialogueControl.characterPositionChange = positionChange.playerPosition;
+                        dialogueControl.cameraPositionChange = positionChange.cameraPosition;
+                        dialogueControl.minSpace = positionChange.minSpace;
+                        dialogueControl.maxSpace = positionChange.maxSpace;
                     }
-                    else if (GetComponent<NPCControl>() != null)
+                    else if (NPC != null)
                     {
-                        Movement.instance.interacting = gameObject;
+                        Movement.instance.npcControl = NPC;
                         dialogueControl.normalChoice = true;
-                        GetComponent<NPCControl>().PlayerInteraction();
-                        if (!npcControl.firstTime.Contains(GetComponent<NPCControl>().NPCID))
+                        NPC.PlayerInteraction();
+                        if (!npcControl.firstTime.Contains(NPC.NPCID))
                         {
                             StartCoroutine(dialogueControl.EnterDialogueMode(inkJSON));
                         }
-                        else StartCoroutine(dialogueControl.EnterDialogueMode(GetComponent<NPCControl>().randomResponse[Random.Range(0, GetComponent<NPCControl>().randomResponse.Length)]));
-                        Movement.instance.interactKey.SetActive(false);
+                        else StartCoroutine(dialogueControl.EnterDialogueMode(NPC.randomResponse[Random.Range(0, NPC.randomResponse.Length)]));
                         if (player.transform.rotation.y != playerRotation)
                         {
                             player.transform.eulerAngles = new Vector3(0, playerRotation);

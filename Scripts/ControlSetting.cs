@@ -8,7 +8,7 @@ using AssemblyCSharp;
 public class ControlSetting : MonoBehaviour
 {
     [Header("Menu buttons")]
-    [SerializeField] private Button[] buttons;
+    [SerializeField] private ControlMenuPair[] buttons;
 
     [Header("Default setting page")]
     [SerializeField] private GameObject defaultSetting;
@@ -18,6 +18,8 @@ public class ControlSetting : MonoBehaviour
 
     [SerializeField] private KeyBindDictionary keys;
     [SerializeField] private DataManager dataManager;
+
+    public PauseMenuControl pauseMenuControl;
 
     private void OnEnable()
     {
@@ -34,14 +36,13 @@ public class ControlSetting : MonoBehaviour
         keys.GetDictionary()["OpenSuspects"] = KeyCode.C;
         keys.GetDictionary()["DialogueLog"] = KeyCode.V;
 
-
         //Reset text display
-        buttons[0].GetComponent<ControlMenuPair>().SetText(keys.GetDictionary()["WalkLeft"].ToString());
-        buttons[1].GetComponent<ControlMenuPair>().SetText(keys.GetDictionary()["WalkRight"].ToString());
-        buttons[2].GetComponent<ControlMenuPair>().SetText(keys.GetDictionary()["Interact"].ToString());
-        buttons[3].GetComponent<ControlMenuPair>().SetText(keys.GetDictionary()["OpenInventory"].ToString());
-        buttons[4].GetComponent<ControlMenuPair>().SetText(keys.GetDictionary()["OpenSuspects"].ToString());
-        buttons[5].GetComponent<ControlMenuPair>().SetText(keys.GetDictionary()["DialogueLog"].ToString());
+        buttons[0].SetText(keys.GetDictionary()["WalkLeft"].ToString());
+        buttons[1].SetText(keys.GetDictionary()["WalkRight"].ToString());
+        buttons[2].SetText(keys.GetDictionary()["Interact"].ToString());
+        buttons[3].SetText(keys.GetDictionary()["OpenInventory"].ToString());
+        buttons[4].SetText(keys.GetDictionary()["OpenSuspects"].ToString());
+        buttons[5].SetText(keys.GetDictionary()["DialogueLog"].ToString());
     }
 
     private void OnDisable()
@@ -61,7 +62,7 @@ public class ControlSetting : MonoBehaviour
         dataManager.SaveKeyBind(model);
 
         controlSetting.SetActive(false);
-        defaultSetting.transform.GetComponentInParent<PauseMenuControl>().SetSelectedButton();
+        pauseMenuControl.SetSelectedButton();
         defaultSetting.SetActive(true);
     }
 }

@@ -1,28 +1,13 @@
 {
-    "keyDictionary": [
-        {
-            "key": "WalkLeft",
-            "value": "A"
-        },
-        {
-            "key": "WalkRight",
-            "value": "D"
-        },
-        {
-            "key": "Interact",
-            "value": "X"
-        },
-        {
-            "key": "OpenInventory",
-            "value": "Z"
-        },
-        {
-            "key": "OpenSuspects",
-            "value": "C"
-        },
-        {
-            "key": "DialogueLog",
-            "value": "V"
-        }
-    ]
+    "playerPosition": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+    },
+    "evidenceIDList": [],
+    "locationList": [
+        "Police station"
+    ],
+    "currentScene": 1,
+    "firstTimeInteractionList": []
 }

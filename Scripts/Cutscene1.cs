@@ -9,13 +9,13 @@ public class Cutscene1 : MonoBehaviour
     public static Cutscene1 instance;
 
     public Animator animator;
-    Interaction interaction;
+    public Interaction interaction;
     public bool hasPlayed = false;
     public AudioSource source;
 
     public bool isTransition = false;
     public GameObject player;
-    public GameObject main;
+    public Camera main;
 
     [SerializeField] private InventoryControl inventoryControl;
     [SerializeField] private LocationControl locationControl;
@@ -25,10 +25,8 @@ public class Cutscene1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        interaction = GetComponent<Interaction>();
         StartCoroutine(PlayCutscene());
         // DontDestroyOnLoad(gameObject);
-        FindReference();
         instance = this;
     }
 
@@ -36,9 +34,9 @@ public class Cutscene1 : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name.Equals("AtHome"))
         {
-            DialogueControl.Instance.isPlaying = true;
+            DialogueControl.instance.isPlaying = true;
             yield return new WaitForSeconds(1);
-            StartCoroutine(FindObjectOfType<DialogueControl>().EnterDialogueMode(interaction.inkJSON));
+            StartCoroutine(DialogueControl.instance.EnterDialogueMode(interaction.inkJSON));
         }
     }
 
@@ -64,6 +62,7 @@ public class Cutscene1 : MonoBehaviour
         source.Play();
         isTransition = true;
         Movement.instance.isInteracting = true;
+        Movement.instance.interactKey.SetActive(false);
         animator.SetBool("Fade", false);
         yield return new WaitForSeconds(1);
         player.transform.position = position;
@@ -75,7 +74,6 @@ public class Cutscene1 : MonoBehaviour
 
     IEnumerator EndTransition()
     {
-        FindReference();
         yield return new WaitForSeconds(1);
         source.Stop();
         animator.SetBool("Fade", true);
@@ -85,24 +83,17 @@ public class Cutscene1 : MonoBehaviour
 
     private void Update()
     {
-        if (!DialogueControl.Instance.isPlaying && !hasPlayed)
+        if (!DialogueControl.instance.isPlaying && !hasPlayed)
         {
             animator.SetBool("Fade", true);
-            GetComponent<Interaction>().enabled = false;
+            interaction.enabled = false;
             hasPlayed = true;
         }
-        FindReference();
     }
 
     public void CameraPositionChange(Vector3 position)
     {
         main.transform.position = position;
-    }
-
-    public void FindReference()
-    {
-        player = GameObject.FindGameObjectWithTag("Player");
-        main = GameObject.FindGameObjectWithTag("MainCamera");
     }
 
     private void Save(int index)

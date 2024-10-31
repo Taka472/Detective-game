@@ -7,9 +7,9 @@ public class KeyBinding : MonoBehaviour
 {
     [SerializeField] private KeyBindDictionary keys;
 
-    public Text left, right, interact, openInventory, openSuspects, dialogueLog;
+    public Text left, right, interact, openInventory, openSuspects, dialogueLog, scrollUp, scrollDown;
 
-    public GameObject currentKey;
+    public ControlMenuPair currentKey;
 
     private void Start()
     {
@@ -19,6 +19,8 @@ public class KeyBinding : MonoBehaviour
         openInventory.text = keys.GetDictionary()["OpenInventory"].ToString();
         openSuspects.text = keys.GetDictionary()["OpenSuspects"].ToString();
         dialogueLog.text = keys.GetDictionary()["DialogueLog"].ToString();
+        scrollUp.text = keys.GetDictionary()["ScrollUp"].ToString();
+        scrollDown.text = keys.GetDictionary()["ScrollDown"].ToString();
     }
 
     public Dictionary<string, KeyCode> GetDictionary()
@@ -35,16 +37,16 @@ public class KeyBinding : MonoBehaviour
         {
             if (CheckDuplication(e.keyCode)) return;
             keys.GetDictionary()[currentKey.name] = e.keyCode;
-            currentKey.GetComponent<ControlMenuPair>().SetText(e.keyCode.ToString());
-            currentKey.GetComponent<ControlMenuPair>().ChangeTextColor(Color.white);
+            currentKey.SetText(e.keyCode.ToString());
+            currentKey.ChangeTextColor(Color.white);
             currentKey = null;
         }
     }
 
-    public void ChangeKey(GameObject keys)
+    public void ChangeKey(ControlMenuPair keys)
     {
         currentKey = keys;
-        keys.GetComponent<ControlMenuPair>().ChangeTextColor(Color.yellow);
+        keys.ChangeTextColor(Color.yellow);
     }
 
     public bool CheckDuplication(KeyCode key)
@@ -89,10 +91,20 @@ public class KeyBinding : MonoBehaviour
                             dialogueLog.text = temp.ToString();
                             break;
                         }
+                    case "ScrollUp":
+                        {
+                            scrollUp.text = temp.ToString();
+                            break;
+                        }
+                    case "ScrollDown":
+                        {
+                            scrollDown.text = temp.ToString();
+                            break;
+                        }
                 }
 
-                currentKey.GetComponent<ControlMenuPair>().SetText(key.ToString());
-                currentKey.GetComponent<ControlMenuPair>().ChangeTextColor(Color.white);
+                currentKey.SetText(key.ToString());
+                currentKey.ChangeTextColor(Color.white);
                 currentKey = null;
                 return true;
             }

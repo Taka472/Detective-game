@@ -11,6 +11,7 @@ public class LocationControl : MonoBehaviour
     public GameObject locationTitle;
     public List<string> locationNames;
     public Button[] buttons;
+    public Text[] buttonsText;
 
     private void Awake()
     {
@@ -24,15 +25,15 @@ public class LocationControl : MonoBehaviour
         for (int i = 0; i < locationNames.Count; i++)
         {
             buttons[i].gameObject.SetActive(true);
-            buttons[i].transform.GetChild(0).GetComponent<Text>().text = locationNames[i];
-            buttons[i].transform.GetChild(0).GetComponent<Text>().color = Color.white;
+            buttonsText[i].text = locationNames[i];
+            buttonsText[i].color = Color.white;
         }
         for (int i = locationNames.Count; i < buttons.Length; i++)
         {
             buttons[i].gameObject.SetActive(true);
-            buttons[i].transform.GetChild(0).GetComponent<Text>().text = "?";
+            buttonsText[i].text = "?";
         }
-        buttons[SceneManager.GetActiveScene().buildIndex - 1].transform.GetChild(0).GetComponent<Text>().color = Color.yellow;
+        buttonsText[SceneManager.GetActiveScene().buildIndex - 1].color = Color.yellow;
         EventSystem.current.SetSelectedGameObject(buttons[0].gameObject);
     }
 
